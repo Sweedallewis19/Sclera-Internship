@@ -1,0 +1,99 @@
+Today, I learned the core Object-Oriented Programming (OOP) concepts in Java, mainly focusing on classes and objects. I understood how a class acts as a blueprint that defines properties and behaviors, while an object is an instance of a class created using the new keyword. I practiced creating multiple objects from the same class and learned how they maintain their own separate data.
+
+I also studied memory allocation in Java, where I learned how memory is divided into stack and heap. I understood that objects are stored in heap memory, while reference variables and method calls are stored in stack memory.
+
+Example for class and object creation:
+public class TextBox {
+    public String text; // Field
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void clear() {
+        text = "";
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        var textBox1 = new TextBox();
+        textBox1.setText("Box 1");
+        System.out.println(textBox1.text.toUpperCase());
+
+        var textBox2 = new TextBox();
+        textBox2.setText("Box 2");
+        System.out.println(textBox2.text);
+    }
+}
+
+I learned about encapsulation in Object-Oriented Programming. Encapsulation is the concept of binding data and methods that operate on that data into a single unit, which is a class. I understood that encapsulation helps in controlling access to data and protecting it from being modified directly from outside the class.
+example for encapsulation:
+package com.codewithmosh;
+
+public class Employee {
+
+    private int baseSalary;
+    private int hourlyRate;
+
+    public int calculateWage(int extraHours) {
+        return baseSalary + (getHourlyRate() * extraHours);
+    }
+
+    public void setBaseSalary(int baseSalary) {
+        if (baseSalary <= 0)
+            throw new IllegalArgumentException("Salary cannot be zero or negative");
+        this.baseSalary = baseSalary;
+    }
+
+    public int getBaseSalary() {
+        return baseSalary;
+    }
+
+    public void setHourlyRate(int hourlyRate) {
+        if (hourlyRate <= 0)
+            throw new IllegalArgumentException("Hourly rate cannot be zero or negative");
+        this.hourlyRate = hourlyRate;
+    }
+
+    public int getHourlyRate() {
+        return hourlyRate;
+    }
+}
+I learned about abstraction and how it is applied in Java through methods and controlled object creation. I understood that abstraction focuses on showing only the essential features of a class while hiding the internal implementation detail
+
+I also learned about constructors, which are special methods used to initialize objects at the time of creation.In this example, constructors are used to assign values to baseSalary and hourlyRate when an Employee object is created, ensuring the object starts in a valid state.
+package com.codewithmosh;
+
+public class Employee {
+
+    private int baseSalary;
+    private int hourlyRate;
+
+    // Constructor with one parameter
+    public Employee(int baseSalary) {
+        this(baseSalary, 0);
+    }
+
+    // Constructor with two parameters (Constructor Overloading)
+    public Employee(int baseSalary, int hourlyRate) {
+        setBaseSalary(baseSalary);
+        setHourlyRate(hourlyRate);
+    }
+
+    public int calculateWage(int extraHours) {
+        return baseSalary + (getHourlyRate() * extraHours);
+    }
+
+    public void setBaseSalary(int baseSalary) {
+        if (baseSalary <= 0)
+            throw new IllegalArgumentException("Salary cannot be zero or negative");
+        this.baseSalary = baseSalary;
+    }
+
+    public int getBaseSalary() {
+        return baseSalary;
+    }
+}
+
+I learned about static members in Java. Static members belong to the class itself rather than to individual objects. This means they are shared among all instances of the class and are created only once in memory.
+In Java variables or methods declared using the static keyword can be accessed without creating an object. Static members are commonly used for values or behaviors that are common to all objects, such as constants, counters, or utility methods.
