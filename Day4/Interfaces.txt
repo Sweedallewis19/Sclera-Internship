@@ -77,4 +77,7 @@ public class TaxReport {
 
 This allows changing the dependency even after the object is created.
 
-I learned about interfaces and the Interface Segregation Principle. I understood that interfaces should be small and focused so that classes only implement the methods they actually need. I also learned the difference between abstract classes and interfaces, where abstract classes share common behavior and interfaces define rules for implementation. This helped me understand how interfaces are useful for building flexible and easy-to-maintain programs.
+
+I learned about interfaces and the Interface Segregation Principle. 
+I understood that interfaces should be small and focused so that classes only implement the methods they actually need.
+I also learned the difference between abstract classes and interfaces, where abstract classes share common behavior and interfaces define rules for implementation. This helped me understand how interfaces are useful for building flexible and easy-to-maintain programs.
