@@ -1,0 +1,80 @@
+Today, I learned about interfaces in Java. An interface defines a contract that a class must follow. It specifies what methods a class should have, but not how they are implemented. Interfaces help achieve abstraction and loose coupling.
+
+Example :
+public interface TaxCalculator {
+    double calculateTax();
+}
+
+
+Here, the interface ensures that any tax calculator must implement the calculateTax() method.
+
+Creation of Interface
+
+I created an interface using the interface keyword. Interfaces contain method declarations without implementation. Classes that implement the interface must provide the method logic.
+
+Implementation:
+public class TaxCalculator2018 implements TaxCalculator {
+    private double taxableIncome;
+
+    public TaxCalculator2018(double taxableIncome) {
+        this.taxableIncome = taxableIncome;
+    }
+
+    @Override
+    public double calculateTax() {
+        return taxableIncome * 0.4;
+    }
+}
+
+Dependency Injection
+
+I learned dependency injection, where a class does not create its own dependencies but receives them from outside. This improves flexibility and testability.
+
+Constructor Injection
+
+In constructor injection, the dependency is passed through the constructor.
+
+Example:
+public class TaxReport {
+    private TaxCalculator calculator;
+
+    public TaxReport(TaxCalculator calculator) {
+        this.calculator = calculator;
+    }
+}
+
+
+Here, TaxReport receives a TaxCalculator object instead of creating it.
+
+Method Injection
+
+In method injection, the dependency is passed through a method parameter.
+
+Example:
+public class TaxReport {
+
+    public void show(TaxCalculator calculator) {
+        double tax = calculator.calculateTax();
+        System.out.println(tax);
+    }
+}
+
+The dependency is provided only when the method is called.
+
+Setter Injection
+
+In setter injection, the dependency is provided using a setter method.
+
+Example:
+public class TaxReport {
+    private TaxCalculator calculator;
+
+    public void setCalculator(TaxCalculator calculator) {
+        this.calculator = calculator;
+    }
+}
+
+
+This allows changing the dependency even after the object is created.
+
+I learned about interfaces and the Interface Segregation Principle. I understood that interfaces should be small and focused so that classes only implement the methods they actually need. I also learned the difference between abstract classes and interfaces, where abstract classes share common behavior and interfaces define rules for implementation. This helped me understand how interfaces are useful for building flexible and easy-to-maintain programs.
