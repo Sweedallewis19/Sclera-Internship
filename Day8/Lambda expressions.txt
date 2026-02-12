@@ -1,0 +1,31 @@
+Today we had to present on overview of whatever java concepts covered till date.
+Today I learned about functional interfaces in Java. I understood that a functional interface contains only one abstract method and can be implemented using lambda expressions. This helps in writing cleaner and more concise code.
+@FunctionalInterface
+interface Printer {
+    void print(String message);
+}
+
+I studied anonymous inner classes, which allow creating objects without explicitly defining a separate class. However, I noticed that they can make the code lengthy compared to newer approaches.
+
+Printer p = new Printer() {
+    public void print(String message) {
+        System.out.println(message);
+    }
+};
+
+
+I then learned about lambda expressions, which provide a shorter and more readable way to implement functional interfaces. Lambdas reduce boilerplate code and improve clarity.
+Printer p = message -> System.out.println(message);
+
+I also understood the concept of variable capture, where lambda expressions can access variables from the surrounding scope, but those variables must be effectively final.
+
+I learned about method references, which are an even cleaner way to refer to existing methods using the :: operator, making the code more readable.
+
+I explored built-in functional interfaces such as Predicate, Function, Supplier, and Consumer, which are provided in the java.util.function package.
+
+I studied the Consumer interface and how consumer chaining works using methods like andThen(), allowing multiple operations to be executed in sequence.
+
+Consumer<String> c1 = s -> System.out.println(s);
+Consumer<String> c2 = s -> System.out.println(s.toUpperCase());
+
+c1.andThen(c2).accept("hello");
