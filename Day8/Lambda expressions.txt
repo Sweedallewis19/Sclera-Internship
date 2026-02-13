@@ -1,4 +1,4 @@
-Today we had to present on overview of whatever java concepts covered till date.
+
 Today I learned about functional interfaces in Java. I understood that a functional interface contains only one abstract method and can be implemented using lambda expressions. This helps in writing cleaner and more concise code.
 @FunctionalInterface
 interface Printer {
@@ -20,12 +20,66 @@ Printer p = message -> System.out.println(message);
 I also understood the concept of variable capture, where lambda expressions can access variables from the surrounding scope, but those variables must be effectively final.
 
 I learned about method references, which are an even cleaner way to refer to existing methods using the :: operator, making the code more readable.
-
 I explored built-in functional interfaces such as Predicate, Function, Supplier, and Consumer, which are provided in the java.util.function package.
-
 I studied the Consumer interface and how consumer chaining works using methods like andThen(), allowing multiple operations to be executed in sequence.
 
 Consumer<String> c1 = s -> System.out.println(s);
 Consumer<String> c2 = s -> System.out.println(s.toUpperCase());
 
 c1.andThen(c2).accept("hello");
+
+I studied the Supplier interface, which supplies a value but does not take any input.
+
+Supplier<String> supplier = () -> "Hello World";
+System.out.println(supplier.get());
+
+Next I learned about the Function interface, which takes one input and returns a result.
+
+Function<Integer, Integer> square = n -> n * n;
+System.out.println(square.apply(5));
+
+I also understood composing functions, where multiple functions can be combined using andThen() or compose().
+
+Function<Integer, Integer> add = n -> n + 2;
+Function<Integer, Integer> multiply = n -> n * 3;
+
+System.out.println(add.andThen(multiply).apply(5));
+
+Then, I studied the Predicate interface, which is used for conditional testing and returns a boolean value.
+
+Predicate<Integer> isEven = n -> n % 2 == 0;
+System.out.println(isEven.test(4));
+
+I also explored the BinaryOperator interface, which takes two inputs of the same type and returns one result.
+
+BinaryOperator<Integer> addNumbers = (a, b) -> a + b;
+System.out.println(addNumbers.apply(3, 4));
+
+Finally, I learned about the UnaryOperator interface, which takes one input and returns the same type.
+
+UnaryOperator<Integer> doubleValue = n -> n * 2;
+System.out.println(doubleValue.apply(5));
+
+Stream
+
+I learned about Java Streams, which allow processing collections in a functional and concise way. Streams help write cleaner code compared to traditional loops.
+
+Imperative vs Functional Programming
+
+I understood the difference between imperative and functional styles.
+
+Imperative style:
+
+List<Integer> numbers = List.of(1, 2, 3, 4);
+List<Integer> result = new ArrayList<>();
+for (int n : numbers) {
+    if (n % 2 == 0)
+        result.add(n);
+}
+
+
+Functional style (Streams):
+
+List<Integer> result = numbers.stream()
+                              .filter(n -> n % 2 == 0)
+                              .toList();
