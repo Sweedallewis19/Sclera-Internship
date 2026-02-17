@@ -1,0 +1,76 @@
+Implemented data retrieval and filtering using core SQL query clauses in MySQL. Practiced building structured queries for sorting, limiting, and filtering records efficiently.
+
+SELECT Statement
+
+Used to retrieve data from tables.
+
+SELECT * FROM customers;
+
+ SELECT Specific Columns
+SELECT first_name, last_name FROM customers;
+
+ WHERE Clause
+
+Filtered records based on conditions.
+
+SELECT * FROM customers
+WHERE state = 'CA';
+
+ AND, OR, NOT Operators
+
+Used logical operators for multiple conditions.
+
+SELECT * FROM customers
+WHERE state = 'CA' AND points > 1000;
+
+SELECT * FROM customers
+WHERE NOT state = 'TX';
+
+ IN Operator
+
+Simplified multiple OR conditions.
+
+SELECT * FROM customers
+WHERE state IN ('CA', 'TX', 'NY');
+
+ BETWEEN Operator
+
+Filtered within a range.
+
+SELECT * FROM customers
+WHERE points BETWEEN 1000 AND 3000;
+
+ LIKE Operator
+
+Used pattern matching with wildcards.
+
+SELECT * FROM customers
+WHERE first_name LIKE 'A%';
+
+ REGEXP Operator
+
+Performed advanced pattern matching.
+
+SELECT * FROM customers
+WHERE last_name REGEXP 'field$';
+
+ IS NULL Operator
+
+Checked for NULL values.
+
+SELECT * FROM customers
+WHERE phone IS NULL;
+
+ ORDER BY Clause
+
+Sorted query results.
+
+SELECT * FROM customers
+ORDER BY points DESC;
+
+ LIMIT Clause
+
+Restricted number of returned records.
+
+SELECT * FROM customers
+LIMIT 5;
