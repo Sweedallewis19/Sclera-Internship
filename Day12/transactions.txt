@@ -1,44 +1,61 @@
-Implemented automation and scheduled database tasks using triggers and events to maintain data integrity and enable auditing mechanisms. Configured database-level automation to execute operations automatically based on defined conditions.
+Implemented transaction control and concurrency management to ensure data consistency and integrity in multi-user database environments. Applied transaction mechanisms, locking strategies, and isolation levels to prevent data anomalies.
+ Creating Transactions
 
-Creating Triggers
+Executed transactions to group multiple operations into a single logical unit of work.
 
-Created triggers to automatically execute logic before or after INSERT, UPDATE, or DELETE operations.
+START TRANSACTION;
 
-CREATE TRIGGER before_insert_user
-BEFORE INSERT ON users
-FOR EACH ROW
-SET NEW.created_at = NOW();
-Viewing Triggers
+UPDATE accounts
+SET balance = balance - 500
+WHERE id = 1;
 
-Checked existing triggers in the database.
+UPDATE accounts
+SET balance = balance + 500
+WHERE id = 2;
 
-SHOW TRIGGERS;
-Dropping Triggers
+COMMIT;
 
-Removed triggers when no longer required.
+Used ROLLBACK to undo changes if errors occur.
 
-DROP TRIGGER before_insert_user;
-Using Triggers for Auditing
+ROLLBACK;
 
-Implemented audit logging to track data modifications.
+Concurrency and Locking:
 
-CREATE TRIGGER after_update_user
-AFTER UPDATE ON users
-FOR EACH ROW
-INSERT INTO users_audit(user_id, old_name, new_name, changed_at)
-VALUES (OLD.id, OLD.name, NEW.name, NOW());
- Creating Events
+Managed concurrent access using row-level locking.
 
-Scheduled automated database tasks using events.
+SELECT * FROM accounts
+WHERE id = 1
+FOR UPDATE;
 
-CREATE EVENT daily_cleanup
-ON SCHEDULE EVERY 1 DAY
-DO
-DELETE FROM logs WHERE created_at < NOW() - INTERVAL 30 DAY;
- Viewing Events
-SHOW EVENTS;
- Dropping or Altering Events
-DROP EVENT daily_cleanup;
+Concurrency Problems
+Handled common issues such as:
+Dirty Reads
+Non-repeatable Reads
+Phantom Reads
 
-ALTER EVENT daily_cleanup
-ON SCHEDULE EVERY 7 DAY;
+Transaction Isolation Levels
+
+Configured isolation levels to control visibility of changes.
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+READ UNCOMMITTED:
+Allowed reading uncommitted data (may cause dirty reads).
+SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+ 
+READ COMMITTED:
+Allowed reading only committed data.
+
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+REPEATABLE READ:
+Ensured consistent data within a transaction.
+SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+ SERIALIZABLE:
+Highest isolation level, preventing concurrency anomalies.
+
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+Deadlocks
+Identified and handled deadlocks occurring due to circular locking dependencies. Used proper transaction ordering and shorter transaction scopes to minimize deadlock risks.
