@@ -1,0 +1,44 @@
+Implemented automation and scheduled database tasks using triggers and events to maintain data integrity and enable auditing mechanisms. Configured database-level automation to execute operations automatically based on defined conditions.
+
+Creating Triggers
+
+Created triggers to automatically execute logic before or after INSERT, UPDATE, or DELETE operations.
+
+CREATE TRIGGER before_insert_user
+BEFORE INSERT ON users
+FOR EACH ROW
+SET NEW.created_at = NOW();
+Viewing Triggers
+
+Checked existing triggers in the database.
+
+SHOW TRIGGERS;
+Dropping Triggers
+
+Removed triggers when no longer required.
+
+DROP TRIGGER before_insert_user;
+Using Triggers for Auditing
+
+Implemented audit logging to track data modifications.
+
+CREATE TRIGGER after_update_user
+AFTER UPDATE ON users
+FOR EACH ROW
+INSERT INTO users_audit(user_id, old_name, new_name, changed_at)
+VALUES (OLD.id, OLD.name, NEW.name, NOW());
+ Creating Events
+
+Scheduled automated database tasks using events.
+
+CREATE EVENT daily_cleanup
+ON SCHEDULE EVERY 1 DAY
+DO
+DELETE FROM logs WHERE created_at < NOW() - INTERVAL 30 DAY;
+ Viewing Events
+SHOW EVENTS;
+ Dropping or Altering Events
+DROP EVENT daily_cleanup;
+
+ALTER EVENT daily_cleanup
+ON SCHEDULE EVERY 7 DAY;
