@@ -1,0 +1,51 @@
+Design and structured relational database models following normalization principles and best practices. Learned conceptual, logical, and physical database models to ensure scalability, maintainability, and data integrity.
+
+Conceptual Model
+
+Defined high-level system entities and relationships without focusing on technical implementation. Identified core business objects and mapped relationships between them.
+
+ Logical Model
+
+Converted conceptual entities into structured relational tables. Defined attributes, primary keys, and relationships while ensuring normalization principles were applied.
+
+Physical Model
+
+Implemented the logical model into MySQL with specific data types, indexes, constraints, and storage configurations.
+
+Primary Keys
+
+Assigned unique identifiers to ensure each record can be uniquely identified.
+
+CREATE TABLE customers (
+    id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+ Foreign Keys & Constraints
+
+Established relationships between tables to maintain referential integrity.
+
+CREATE TABLE orders (
+    id INT PRIMARY KEY,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(id)
+);
+
+Link Tables (Many-to-Many Relationships)
+
+Implemented junction tables to resolve many-to-many relationships.
+
+CREATE TABLE student_courses (
+    student_id INT,
+    course_id INT,
+    PRIMARY KEY (student_id, course_id)
+);
+
+Normalization (1NF, 2NF, 3NF)
+
+Applied normalization rules to eliminate redundancy and ensure data consistency:
+
+1NF – Eliminated repeating groups and ensured atomic values.
+
+2NF – Removed partial dependency on composite keys.
+
+3NF – Eliminated transitive dependencies.
