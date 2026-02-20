@@ -1,6 +1,6 @@
 Implemented advanced data retrieval techniques using subqueries and conditional operators to perform dynamic filtering and analytical comparisons across related tables.
 
-🔹 Subqueries
+Subqueries
 
 Used subqueries to retrieve data based on results of another query.
 
@@ -10,7 +10,7 @@ WHERE id IN (
     SELECT customer_id FROM orders
 );
 
-🔹 Subqueries in the FROM Clause
+Subqueries in the FROM Clause
 
 Used subqueries as temporary tables for further filtering.
 
@@ -22,7 +22,7 @@ FROM (
 ) AS summary
 WHERE total > 5000;
 
-🔹 IN Operator with Subqueries
+ IN Operator with Subqueries
 
 Filtered records using subquery results.
 
@@ -32,7 +32,7 @@ WHERE id IN (
     SELECT product_id FROM order_items
 );
 
-🔹 Subqueries vs Joins
+Subqueries vs Joins
 
 Applied joins for relational data retrieval and subqueries for conditional filtering depending on performance and readability requirements.
 
@@ -41,7 +41,7 @@ SELECT c.name, o.order_id
 FROM customers c
 JOIN orders o ON c.id = o.customer_id;
 
-🔹 ALL Keyword
+ALL Keyword
 
 Compared values against all results of a subquery.
 
@@ -51,7 +51,7 @@ WHERE price > ALL (
     SELECT price FROM products WHERE category_id = 2
 );
 
-🔹 ANY Keyword
+ANY Keyword
 
 Compared values against any value from subquery results.
 
@@ -61,7 +61,7 @@ WHERE price > ANY (
     SELECT price FROM products WHERE category_id = 2
 );
 
-🔹 Correlated Subqueries
+ Correlated Subqueries
 
 Used subqueries that reference outer query columns.
 
@@ -73,7 +73,7 @@ WHERE EXISTS (
     WHERE o.customer_id = c.id
 );
 
-🔹 EXISTS Operator
+ EXISTS Operator
 
 Checked existence of related records.
 
@@ -85,7 +85,7 @@ WHERE EXISTS (
     WHERE orders.customer_id = customers.id
 );
 
-🔹 Subqueries in SELECT Clause
+ Subqueries in SELECT Clause
 
 Used subqueries to compute dynamic values in result columns.
 
@@ -93,4 +93,5 @@ SELECT name,
        (SELECT COUNT(*)
         FROM orders
         WHERE orders.customer_id = customers.id) AS order_count
+
 FROM customers;
