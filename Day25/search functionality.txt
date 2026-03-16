@@ -1,0 +1,5 @@
+A search functionality was implemented to allow users to find books using a search pattern. In the service layer, the method searchBooks(String searchPattern) receives the search keyword from the user and calls the repository method searchBooksByName(searchPattern) to retrieve matching book records from the database. The results are then returned to the controller and sent to the client. This implementation improves the usability of the library system by enabling quick and efficient book searches.
+
+public List<Book> searchBooks(String searchPattern) {
+    return bookRepository.searchBooksByName(searchPattern);
+}
