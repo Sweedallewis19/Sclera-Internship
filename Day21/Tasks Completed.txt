@@ -1,0 +1,22 @@
+Tasks Completed:
+1. Environment Variables Setup
+- Created .env file for database credentials (username/password)
+- Added dotenv-java dependency to load environment variables
+- Updated application.yaml to use ${DB_USERNAME} and ${DB_PASSWORD}
+- Added .env to .gitignore for security
+2. DTO Implementation (Data Transfer Objects)
+- Created 4 DTOs:
+  - AuthorRequestDTO - for creating/updating authors
+  - AuthorResponseDTO - for responses (excludes password)
+  - BookRequestDTO - for creating/updating books
+  - BookResponseDTO - for responses (includes author details)
+- Added MapStruct dependency for automatic entity-DTO mapping
+- Created AuthorMapper and BookMapper interfaces
+3. Authorization Enhancement
+- Added ownership check for book update/delete operations
+- Now only the author(s) who created the book can modify/delete it
+- Other users receive: "You are not authorized to delete/update this book"
+4. Database Constraint
+- Added @Column(unique = true) to username field to prevent duplicate usernames
+
+https://github.com/Sweedallewis19/Sclera-Internship/tree/main/TASKs/library/src/main/java/com/example/library

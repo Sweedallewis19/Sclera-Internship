@@ -1,0 +1,11 @@
+After completing the API features, I worked on Dockerizing the application to simplify deployment and ensure that the application runs consistently across different environments.
+
+Dockerization involves packaging the application along with its runtime environment into containers so that it can run the same way on any system without requiring manual setup of dependencies.
+
+I created a Dockerfile to define how the Spring Boot application should be packaged into a Docker image. The Dockerfile copies the compiled .jar file into the container and runs it using Java.
+
+I also created a docker-compose.yml file to run both the Spring Boot application and MySQL database as separate containers. Docker Compose helps manage multiple containers together and allows them to communicate through a shared network.
+
+To improve security, database credentials were stored using environment variables instead of hardcoding them in the configuration files. This prevents sensitive information such as database passwords from being exposed in the source code repository.
+
+https://github.com/Sweedallewis19/Sclera-Internship/tree/main/TASKs/library

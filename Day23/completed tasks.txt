@@ -1,0 +1,30 @@
+completed tasks:
+
+Configured the application to use stateless authentication.
+Disabled HTTP session creation using SessionCreationPolicy.STATELESS.
+Ensured every API request requires a valid JWT token for authentication.
+
+
+Security Testing of Protected APIs
+
+Verified security implementation by testing APIs with and without JWT tokens.
+Confirmed that protected endpoints reject requests without authentication.
+Ensured valid tokens successfully authorize requests.
+
+Also went through Networking course in the portal
+
+Studied the concept of computer networks and understood how multiple computers connect to share data and resources.
+
+Learned that networks allow devices to communicate through wired or wireless connections using communication protocols.
+
+Explored the importance of networking, including communication, internet access, and efficient data exchange.
+
+Understood how networking enables resource sharing such as printers, storage devices, and applications.
+
+Learned about data sharing and collaboration, which allows multiple users to work together in real time.
+
+Studied how networks support centralized management, helping administrators monitor and control devices.
+
+Gained knowledge about scalability and flexibility in expanding networks when needed.
+
+Learned basic concepts of network security, backup, and disaster recovery to protect and maintain data.

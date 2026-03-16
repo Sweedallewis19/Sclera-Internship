@@ -1,0 +1,26 @@
+Tasks Performed
+1. JWT Token Generation (JwtUtil.java)
+- Implemented generateToken(username) method to create JWT tokens with 24-hour expiration
+- Used HMAC-SHA256 algorithm for signing tokens
+- Included username as subject, issued date, and expiration in token payload
+2. JWT Token Validation (JwtUtil.java)
+- Implemented extractUsername(token) to extract username from token
+- Implemented validateToken(token, username) to verify token belongs to user
+3. JWT Request Filter (JwtFilter.java)
+- Created JwtFilter extending OncePerRequestFilter
+- Extracts Bearer token from Authorization header
+- Validates token and sets authentication in Spring Security context
+- Integrates with CustomUserDetailsService for user loading
+4. Security Configuration
+- Integrated JWT filter in Spring Security filter chain
+- Configured stateless authentication (no session)
+- Applied authorization checks on update/delete operations
+5. Testing & Debugging
+- Handled JWT expiration errors
+- Verified token-based authentication flow
+
+https://github.com/Sweedallewis19/Sclera-Internship/tree/main/TASKs/library/src/main/java/com/example/library/security
+Files Modified/Created:
+- src/main/java/com/example/library/security/JwtUtil.java
+- src/main/java/com/example/library/security/JwtFilter.java
+- src/main/java/com/example/library/security/CustomUserDetailsService.java

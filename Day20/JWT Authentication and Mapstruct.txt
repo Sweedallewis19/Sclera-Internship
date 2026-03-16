@@ -1,0 +1,26 @@
+JWT Authentication – Implementation
+
+To secure the application, JWT (JSON Web Token) authentication was implemented using Spring Security. The implementation involved creating several security components to handle authentication and token validation.
+
+First, the required dependencies for Spring Security and JWT were added to the pom.xml file. Then a JWT utility class was created to generate and validate tokens using a secret key. This class handles token creation during login and extracts the username from the token during request validation.
+
+Next, a CustomUserDetailsService was implemented to load user details from the database. In this project, authors act as authenticated users, so the service retrieves author credentials using the username stored in the database.
+
+A JWT filter was created to intercept every incoming request. The filter checks for the presence of a JWT token in the Authorization header, validates the token, and sets the authentication in the Spring Security context if the token is valid.
+
+A Security configuration class was then implemented to configure Spring Security settings. This configuration disables CSRF for REST APIs, allows access to the login endpoint without authentication, and protects all other endpoints so that they require a valid JWT token.
+
+Finally, an authentication controller was created to handle login requests. When a user provides valid credentials, the system generates a JWT token and returns it in the response. The client must include this token in the Authorization header for all protected API requests.
+
+MapStruct:
+Today I learned about MapStruct, a Java library used for automatically mapping objects between different layers of an application. In Spring Boot applications, it is considered a good practice not to expose database entities directly through APIs. Instead, Data Transfer Objects (DTOs) are used to send only the required data to the client.
+
+<dependency>
+    <groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct</artifactId>
+    <version>1.5.5.Final</version>
+</dependency>
+
+I learned that MapStruct helps eliminate the need for writing repetitive manual mapping code by generating mapping implementations at compile time. By defining a mapper interface and using the @Mapper annotation, MapStruct automatically creates the necessary mapping logic between entities and DTO classes.
+
+ I also understood the advantages of MapStruct compared to manual mapping methods, such as improved code readability, reduced boilerplate code, and better performance because the mapping code is generated during compilation rather than using reflection at runtime.

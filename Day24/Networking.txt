@@ -1,0 +1,7 @@
+Today i made User entity for the author_book task,where user can view books.
+
+I learned about the OSI Model and the TCP/IP Model, which explain how data communication happens in computer networks.
+
+The OSI (Open Systems Interconnection) Model has seven layers: Physical, Data Link, Network, Transport, Session, Presentation, and Application. Each layer performs a specific function. The Physical layer handles the transmission of raw data through cables or wireless signals. The Data Link layer manages error detection and framing between devices. The Network layer deals with logical addressing and routing using protocols like IP. The Transport layer ensures reliable communication using TCP and UDP. The Session layer manages communication sessions between devices. The Presentation layer handles data formatting, encryption, and compression. The Application layer provides services directly to user applications through protocols such as HTTP, FTP, SMTP, and DNS.
+
+I also studied the TCP/IP Model, which is widely used on the Internet. It consists of four layers: Network Interface, Internet, Transport, and Application. The Network Interface layer handles physical network communication. The Internet layer manages IP addressing and routing. The Transport layer ensures end-to-end data delivery using TCP or UDP. The Application layer provides services for applications such as web browsing and email.
