@@ -1,0 +1,68 @@
+Today, I learned about exceptions in Java. An exception is an error that occurs during program execution and interrupts the normal flow of the program. Java provides exception handling to handle such errors gracefully without crashing the program.
+
+int a = 10 / 0; // ArithmeticException
+
+Types of Exceptions
+
+I learned that there are two main types of exceptions:
+
+Checked exceptions – checked at compile time (e.g IOException)
+
+Unchecked exceptions – occur at runtime (e.g ArithmeticException, NullPointerException)
+
+String s = null;
+System.out.println(s.length()); // NullPointerException
+
+Catching Exceptions (try-catch)
+
+I learned to handle exceptions using the try-catch block. The risky code is placed inside try, and the handling code is written inside catch.
+
+try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero");
+}
+
+Finally Block
+
+I learned about the finally block, which always executes whether an exception occurs or not. It is mainly used for cleanup operations.
+
+try {
+    int x = 10 / 2;
+} catch (Exception e) {
+    System.out.println("Error");
+} finally {
+    System.out.println("Execution completed");
+}
+
+Throwing Exceptions
+
+I learned how to manually throw an exception using the throw keyword when an invalid condition occurs.
+
+if (age < 18) {
+    throw new IllegalArgumentException("Age must be 18 or above");
+}
+
+Custom Exceptions
+
+I learned how to create my own exception by extending the Exception class. This helps in handling application-specific errors.
+
+class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+
+Usage:
+
+throw new InvalidAgeException("Invalid age entered");
+
+Chaining Exceptions
+I learned about exception chaining, where one exception causes another exception. This helps in tracking the root cause of the error.
+
+try {
+    throw new ArithmeticException("Division error");
+} catch (ArithmeticException e) {
+    throw new RuntimeException("Calculation failed", e);
+}

@@ -1,0 +1,61 @@
+Implemented transaction control and concurrency management to ensure data consistency and integrity in multi-user database environments. Applied transaction mechanisms, locking strategies, and isolation levels to prevent data anomalies.
+ Creating Transactions
+
+Executed transactions to group multiple operations into a single logical unit of work.
+
+START TRANSACTION;
+
+UPDATE accounts
+SET balance = balance - 500
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 500
+WHERE id = 2;
+
+COMMIT;
+
+Used ROLLBACK to undo changes if errors occur.
+
+ROLLBACK;
+
+Concurrency and Locking:
+
+Managed concurrent access using row-level locking.
+
+SELECT * FROM accounts
+WHERE id = 1
+FOR UPDATE;
+
+Concurrency Problems
+Handled common issues such as:
+Dirty Reads
+Non-repeatable Reads
+Phantom Reads
+
+Transaction Isolation Levels
+
+Configured isolation levels to control visibility of changes.
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+READ UNCOMMITTED:
+Allowed reading uncommitted data (may cause dirty reads).
+SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+ 
+READ COMMITTED:
+Allowed reading only committed data.
+
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+REPEATABLE READ:
+Ensured consistent data within a transaction.
+SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+ SERIALIZABLE:
+Highest isolation level, preventing concurrency anomalies.
+
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+Deadlocks
+Identified and handled deadlocks occurring due to circular locking dependencies. Used proper transaction ordering and shorter transaction scopes to minimize deadlock risks.

@@ -1,0 +1,133 @@
+I understood that Maven follows a standard project structure, which improves organization and team collaboration.
+
+pom.xml → Main configuration file
+
+src/main/java → Application source code
+
+src/main/resources → application.properties, config files
+
+src/test/java → Test cases
+
+This structure helped maintain clean and scalable project architecture.
+
+Maven Core Concepts
+
+I learned that Maven is based on:
+
+POM (Project Object Model) → Defined in pom.xml
+
+Coordinates → groupId, artifactId, version
+
+Build Lifecycle
+
+Repositories
+
+Example:
+
+<groupId>com.example</groupId>
+<artifactId>student-management</artifactId>
+<version>1.0.0</version>
+
+This uniquely identifies a project.
+
+Dependencies
+
+Dependencies are external libraries required for development.
+
+Example:
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+Maven automatically downloads required JAR files instead of manually adding them.
+
+Transitive Dependencies
+
+When I added spring-boot-starter-web, Maven automatically downloaded:
+
+Spring Core
+
+Spring MVC
+
+Embedded Tomcat
+
+Jackson
+
+I learned that these are called transitive dependencies, meaning dependencies of dependencies.
+
+
+SNAPSHOT & RELEASE Dependencies
+
+RELEASE → Stable version (e.g., 1.0.0)
+
+SNAPSHOT → Development version (e.g., 1.0.0-SNAPSHOT)
+
+During development, SNAPSHOT versions are used. For production deployment, RELEASE versions are preferred.
+
+ Dependency Scopes
+
+I explored different scopes:
+
+compile → Default, available everywhere
+
+test → Only for testing (e.g., JUnit)
+
+runtime → Required only at runtime
+
+provided → Provided by server (e.g., Servlet API)
+
+Example:
+
+<scope>test</scope>
+
+This prevents test libraries from being included in the final JAR.
+
+ Repositories
+
+Maven downloads dependencies from repositories:
+
+Local Repository → .m2 folder in system
+
+Central Repository → Maven Central (online)
+
+Remote Repository → Company/private repository
+
+Maven first checks the local repository before downloading from central.
+
+ Build Lifecycle
+
+I understood the Maven build phases:
+
+validate
+compile
+test
+package
+install
+deploy
+
+Common command used:
+
+mvn clean install
+
+This:
+Cleans old files
+Compiles project
+Runs tests
+Creates JAR
+Installs it in local repository
+
+Plugins and Goals
+
+Maven uses plugins to perform tasks.
+
+Example:
+
+mvn spring-boot:run
+
+Plugin → spring-boot
+
+Goal → run
+
+Plugins help in compilation, packaging, testing, and running applications.

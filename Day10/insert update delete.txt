@@ -1,0 +1,79 @@
+Implemented data manipulation operations including inserting, updating, deleting, and copying records in relational tables. Applied structured modification techniques to maintain data consistency and integrity.
+
+ Column Attributes
+
+Defined column constraints and attributes such as PRIMARY KEY, NOT NULL, AUTO_INCREMENT, and DEFAULT.
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    status VARCHAR(20) DEFAULT 'active'
+);
+
+Inserting a Single Row
+
+Inserted individual records into a table.
+
+INSERT INTO users (name)
+VALUES ('Alice');
+
+Inserting Multiple Rows
+
+Inserted multiple records efficiently in a single query.
+
+INSERT INTO users (name)
+VALUES ('Bob'), ('Charlie'), ('David');
+
+ Inserting Hierarchical Rows
+
+Handled parent-child relationships using foreign keys.
+
+INSERT INTO employees (name, manager_id)
+VALUES ('John', NULL),
+       ('Mike', 1);
+
+ Creating a Copy of a Table
+
+Created duplicate tables for backup or testing.
+
+CREATE TABLE users_copy AS
+SELECT * FROM users;
+
+ Updating a Single Row
+
+Modified specific records using conditions.
+
+UPDATE users
+SET name = 'Alice Smith'
+WHERE id = 1;
+
+ Updating Multiple Rows
+
+Updated multiple records using conditional filters.
+
+UPDATE users
+SET status = 'inactive'
+WHERE id > 2;
+
+ Using Subqueries in Updates
+
+Used subqueries to update based on related data.
+
+UPDATE users
+SET status = 'inactive'
+WHERE id IN (
+    SELECT user_id FROM orders
+);
+
+ Deleting Rows
+
+Removed records safely using conditions.
+
+DELETE FROM users
+WHERE id = 3;
+
+ Restoring Databases
+
+Restored database backups using command-line tools.
+
+mysql -u root -p database_name < backup.sql

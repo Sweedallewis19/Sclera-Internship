@@ -1,0 +1,81 @@
+Implemented indexing strategies to improve query performance and optimize data retrieval in MySQL databases. Focused on understanding how indexes reduce full table scans and speed up filtering, sorting, and searching operations.
+
+What is an Index?
+
+An index works like a book index.
+Instead of scanning the entire table, MySQL can quickly locate rows using indexed columns.
+
+CREATE INDEX idx_name ON users(name);
+
+This improves performance when searching by name.
+
+ Creating Indexes
+
+Created indexes on frequently searched or filtered columns.
+
+CREATE INDEX idx_email ON users(email);
+
+ Viewing Indexes
+
+Checked existing indexes to analyze table structure.
+SHOW INDEXES FROM users;
+
+ Using Indexes for Sorting:
+
+Indexes help speed up ORDER BY operations.
+
+SELECT * FROM users
+ORDER BY name;
+
+If name is indexed, sorting becomes faster.
+
+ Composite Indexes (Multiple Columns):
+
+Created indexes on multiple columns for combined filtering.
+
+CREATE INDEX idx_user_status
+ON users(status, created_at);
+
+ Order of Columns in Composite Index
+
+MySQL uses the index from left to right.
+
+If index is:
+
+(status, created_at)
+
+It works for:
+
+WHERE status = 'active'
+
+WHERE status = 'active' AND created_at > '2024-01-01'
+
+But not efficiently for:
+
+WHERE created_at > '2024-01-01' alone
+
+ Prefix Indexes:
+
+Used when indexing long text columns to save space.
+
+CREATE INDEX idx_name_prefix
+ON users(name(10));
+
+Only first 10 characters are indexed.
+
+Covering Indexes:
+
+When all requested columns exist inside the index, MySQL does not need to access the table.
+
+Example:
+
+CREATE INDEX idx_user ON users(name, email);
+
+If query selects only name and email, it uses only the index → faster.
+
+ Full-Text Indexes
+
+Used for searching large text content.
+
+CREATE FULLTEXT INDEX idx_description
+ON products(description);

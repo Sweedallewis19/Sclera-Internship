@@ -1,0 +1,49 @@
+Today, I learned about generics in Java and understood why they are used to write type-safe and reusable code. Generics help avoid runtime errors by checking types at compile time.
+
+Need for Generics
+
+I understood that generics remove the need for type casting and ensure that only valid data types are stored.
+
+GenericList<Integer> list = new GenericList<>();
+
+Generic Class
+	 
+I created a generic class using a type parameter T, which allows the class to work with different data types.
+
+public class GenericList<T> { }
+
+Generics and Primitive Types
+
+I learned that generics do not support primitive types directly, so wrapper classes like Integer and Double must be used instead of int and double.
+
+Constraints (Bounded Generics)
+
+I applied a constraint using extends Number so that the generic class only accepts numeric types.
+
+public class GenericList<T extends Number> { }
+
+Type Erasure
+
+I learned that Java uses type erasure, which means the generic type information is removed at runtime, and the code internally works with Object.
+
+private T[] items = (T[]) new Object[10];
+
+Generic Methods
+
+I used generic methods like add() and get() to safely add and retrieve elements without casting.
+
+public void add(T item) { }
+public T get(int index) { }
+
+Generic Class and Inheritance
+
+I learned that generic classes can use inheritance and constraints together, allowing flexibility while still enforcing type rules.
+
+GenericList<Number> numbers = new GenericList<>();
+
+Multiple Type Parameters
+
+I understood that Java also supports multiple type parameters, even though this class uses only one.
+
+class Pair<K, V> { }
+

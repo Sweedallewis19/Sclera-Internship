@@ -1,0 +1,49 @@
+CTE = Common Table Expression
+
+It is a temporary result set that you can use inside a SELECT, INSERT, UPDATE, or DELETE statement.
+
+Basic Syntax
+WITH cte_name AS (
+    SELECT column1, column2
+    FROM table_name
+    WHERE condition
+)
+SELECT * FROM cte_name;
+
+WITH: starts the CTE
+
+cte_name: temporary name
+
+The query inside () → defines the data
+
+Without CTE
+SELECT name, salary
+FROM employees
+WHERE salary > (
+    SELECT AVG(salary) FROM employees
+);
+
+With CTE 
+WITH avg_salary AS (
+    SELECT AVG(salary) AS avg_sal FROM employees
+)
+SELECT name, salary
+FROM employees, avg_salary
+WHERE salary > avg_sal;
+
+
+Benefits:
+Improves readability
+
+Breaks complex queries into parts
+Avoids repeating subqueries
+Useful in recursive queries
+Recursive CTE (Important for Interviews)
+
+Used for:
+
+Hierarchy data (manager → employee)
+
+Tree structures
+Finding sequences
+

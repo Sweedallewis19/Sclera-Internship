@@ -1,0 +1,118 @@
+Implemented relational data retrieval across multiple tables using various SQL join techniques. Applied different join strategies based on data requirements and optimized queries for structured data relationships.
+
+Inner Join
+
+Used to retrieve matching records from two tables.
+
+SELECT c.name, o.order_id
+FROM customers c
+INNER JOIN orders o
+ON c.id = o.customer_id;
+
+ Joining Across Databases
+
+Queried tables across different databases.
+
+SELECT *
+FROM db1.customers c
+JOIN db2.orders o
+ON c.id = o.customer_id;
+
+ Self Join
+
+Joined a table with itself to represent hierarchical relationships.
+
+SELECT e.name, m.name AS manager
+FROM employees e
+JOIN employees m
+ON e.manager_id = m.id;
+
+Joining Multiple Tables
+
+Combined data from more than two tables.
+
+SELECT o.order_id, c.name, p.product_name
+FROM orders o
+JOIN customers c ON o.customer_id = c.id
+JOIN products p ON o.product_id = p.id;
+
+ Compound Join Conditions
+
+Applied multiple conditions in join.
+
+SELECT *
+FROM orders o
+JOIN order_items oi
+ON o.id = oi.order_id
+AND o.customer_id = oi.customer_id;
+
+ Implicit Join Syntax
+
+Older join style using WHERE clause.
+
+SELECT *
+FROM customers c, orders o
+WHERE c.id = o.customer_id;
+
+ Outer Joins
+
+Retrieved unmatched records.
+
+Left Join:
+
+SELECT c.name, o.order_id
+FROM customers c
+LEFT JOIN orders o
+ON c.id = o.customer_id;
+
+
+Right Join:
+
+SELECT c.name, o.order_id
+FROM customers c
+RIGHT JOIN orders o
+ON c.id = o.customer_id;
+
+ Outer Join Between Multiple Tables
+SELECT *
+FROM customers c
+LEFT JOIN orders o ON c.id = o.customer_id
+LEFT JOIN payments p ON o.id = p.order_id;
+
+ Self Outer Join
+SELECT e.name, m.name AS manager
+FROM employees e
+LEFT JOIN employees m
+ON e.manager_id = m.id;
+
+ USING Clause
+
+Simplified join condition when column names match.
+
+SELECT *
+FROM orders
+JOIN customers USING (customer_id);
+
+ Natural Join
+
+Automatically joins tables based on common column names.
+
+SELECT *
+FROM orders
+NATURAL JOIN customers;
+
+ Cross Join
+
+Produced Cartesian product of tables.
+
+SELECT *
+FROM customers
+CROSS JOIN products;
+
+ Unions
+
+Combined results from multiple SELECT statements.
+
+SELECT name FROM customers
+UNION
+SELECT name FROM suppliers;
