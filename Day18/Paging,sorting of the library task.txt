@@ -1,0 +1,172 @@
+Today, I worked on implementing advanced REST endpoints involving aggregation functions, sorting mechanisms, and pagination using Spring Boot and Spring Data JPA.
+
+The objective was to enhance the Library Management System with analytical and optimized data retrieval capabilities.
+
+REST Endpoint – Average Rating of All Authors
+
+Implementation Approach
+
+Used Spring Data JPAs @Query annotation.
+
+Applied the SQL AVG() aggregation function.
+
+Retrieved average rating dynamically from the database.
+
+Example JPQL Query:
+
+@Query("SELECT AVG(b.rating) FROM Book b")
+Double getAverageRating();
+
+Controller Endpoint:
+
+@GetMapping("/avg-rating")
+public Double getAverageRating() {
+    return authorService.getAverageRating();
+}
+How It Works Internally:
+Client sends GET /authors/avg-rating
+Controller calls service layer.
+Service calls repository.
+
+Hibernate converts JPQL to SQL:
+SELECT AVG(rating) FROM book;
+Database returns average value.
+Spring converts result to JSON and sends response.
+
+REST Endpoint – Authors with Average Price of Their Books (Sorted)Requirement
+Return all authors.
+Calculate average price of their books.
+Do NOT persist avgPrice in database.
+Sort result ascending or descending.
+
+Implementation Approach
+
+Since Author entity does not contain avgPrice, I used:
+@Transient
+private Double avgPrice;
+
+The @Transient annotation ensures:
+Field is NOT stored in database.
+Used only for runtime calculation.
+
+Calculation Logic (Service Layer)
+
+For each author:
+
+Retrieve associated books.
+
+Calculate average price.
+
+Set value using author.setAvgPrice().
+
+Sorting was implemented using:
+
+authors.sort(Comparator.comparing(Author::getAvgPrice));
+
+Or reversed for descending order.
+
+Endpoint Example
+GET /authors/avg-price?direction=asc
+GET /authors/avg-price?direction=desc
+
+REST Endpoint – Pagination and Sorting of Books
+Requirement:
+Return a paginated list of books.
+Implement sorting.
+Follow Spring Data JPA pagination model.
+
+🛠mplementation Approach
+
+Used:
+
+Pageable
+PageRequest
+Sort
+Page<Book>
+
+Service Implementation
+Sort sort = direction.equalsIgnoreCase("asc")
+        ? Sort.by(sortBy).ascending()
+        : Sort.by(sortBy).descending();
+
+Pageable pageable = PageRequest.of(page, size, sort);
+
+return bookRepository.findAll(pageable);
+Endpoint Example
+GET /books/page?page=0&size=5&sortBy=price&direction=desc
+How It Works Internally
+
+Spring converts it to SQL:
+
+SELECT * FROM book
+ORDER BY price DESC
+LIMIT 5 OFFSET 0;
+
+Pagination uses:
+
+LIMIT for number of records
+
+OFFSET for page navigation
+
+Response Structure
+
+Spring returns:
+
+{
+  "content": [...],
+  "totalElements": 20,
+  "totalPages": 4,
+  "size": 5,
+  "number": 0
+}REST Endpoint – Pagination and Sorting of Books
+Requirement
+
+Return a paginated list of books.
+
+Implement sorting.
+
+Follow Spring Data JPA pagination model.
+Implementation Approach
+
+Used:
+Pageable
+PageRequest
+Sort
+Page<Book>
+
+Service Implementation
+Sort sort = direction.equalsIgnoreCase("asc")
+        ? Sort.by(sortBy).ascending()
+        : Sort.by(sortBy).descending();
+
+Pageable pageable = PageRequest.of(page, size, sort);
+
+return bookRepository.findAll(pageable);
+Endpoint Example
+GET /books/page?page=0&size=5&sortBy=price&direction=desc
+How It Works Internally
+
+Spring converts it to SQL:
+
+SELECT * FROM book
+ORDER BY price DESC
+LIMIT 5 OFFSET 0;
+
+Pagination uses:
+
+LIMIT for number of records
+
+OFFSET for page navigation
+
+Response Structure
+
+Spring returns:
+
+{
+  "content": [...],
+  "totalElements": 20,
+  "totalPages": 4,
+  "size": 5,
+  "number": 0
+
+}

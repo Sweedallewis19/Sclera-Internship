@@ -1,0 +1,114 @@
+Core Spring Boot Concepts – Learning
+
+Dependency Injection (DI)
+
+I learned that Dependency Injection helps reduce tight coupling between classes. Instead of creating objects manually, Spring automatically injects required dependencies. I understood how constructor-based injection is preferred over field injection for better testability.
+
+Spring Beans and Bean Lifecycle
+
+I understood that Spring Beans are objects managed by the Spring container. I learned about the bean lifecycle stages such as instantiation, dependency injection, initialization, and destruction. This helped me understand how Spring manages application components internally.
+
+Common Annotations
+
+I gained clarity on commonly used annotations:
+
+@SpringBootApplication – Marks the main class and enables auto configuration and component scanning.
+@Component – Declares a general Spring-managed bean.
+@Service – Used for business logic layer.
+@Repository – Used for database interaction.
+@Autowired – Used for automatic dependency injection.
+
+Understanding these annotations helped me understand layered architecture clearly.
+
+Application Properties and YAML Configuration
+
+I learned how to configure application settings using application.properties and YAML files. I configured MySQL database connection, server port, and Hibernate properties. This improved my understanding of environment-based configuration.
+
+Auto Configuration Concept
+
+I learned that Spring Boot automatically configures beans based on dependencies added in the pom.xml file. For example, adding Spring Data JPA dependency automatically configures Hibernate and DataSource. This reduced manual configuration effort.
+
+Building REST APIs – Learning
+
+REST Architecture Principles
+
+I learned REST fundamentals such as stateless communication, resource-based URLs, HTTP methods (GET, POST, PUT, DELETE), and JSON-based data exchange.
+
+Creating Controllers
+
+I understood how @RestController simplifies API creation by returning JSON responses directly. I learned how controllers handle client requests and return appropriate responses.
+
+Request Mapping Annotations
+
+I practiced using:
+
+@GetMapping
+
+@PostMapping
+
+@PutMapping
+
+@DeleteMapping
+
+@RequestMapping
+
+This helped me understand how different HTTP methods are mapped to Java methods.
+
+Handling Path Variables and Request Parameters
+
+I learned the difference between:
+
+@PathVariable for dynamic URL values
+
+@RequestParam for query parameters
+
+This improved my understanding of flexible API design.
+
+RequestBody and ResponseEntity
+
+I learned how @RequestBody converts incoming JSON into Java objects. I also understood how ResponseEntity allows control over HTTP status codes and response structure.
+
+Global Exception Handling
+
+I learned to implement centralized exception handling using @ControllerAdvice and @ExceptionHandler. This helped me understand clean error handling mechanisms.
+
+API Testing using Postman
+
+I practiced testing APIs using Postman by sending different HTTP requests and verifying status codes and responses. This improved my debugging skills.
+
+Database Integration – Learning
+
+JDBC Basics
+
+I first understood how JDBC connects Java applications to databases. I learned that it requires manual connection handling and SQL writing.
+
+Spring Data JPA
+
+I learned that Spring Data JPA simplifies database operations by providing built-in CRUD methods. This reduced boilerplate code significantly.
+
+Hibernate Overview
+
+I understood that Hibernate is an ORM tool that maps Java objects to database tables. It automatically generates SQL queries based on entity classes.
+
+Entity and Repository Pattern
+
+I learned how entities represent database tables and repositories handle data access operations. This clarified the separation of concerns in backend architecture.
+
+CRUD Operations with JPA and DTO
+
+I practiced performing Create, Read, Update, and Delete operations using JpaRepository methods. I also learned the importance of DTOs (Data Transfer Objects) to avoid exposing internal entity structures directly to clients.
+
+Entity Relationships
+
+I gained understanding of:
+
+One-to-One relationships
+
+One-to-Many relationships
+
+Many-to-Many relationships
+
+I learned how annotations like @OneToMany and @ManyToMany define relationships between tables.
+Pagination and Sorting
+
+I learned how to implement pagination using Pageable and PageRequest to handle large datasets efficiently. This improved my understanding of performance optimization.

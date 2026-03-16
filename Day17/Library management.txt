@@ -1,0 +1,71 @@
+Today, I  worked on the Library Management System project using Spring Boot, Spring Data JPA, and MySQL. The main objective was to design and implement complete CRUD (Create, Read, Update, Delete) functionality for the core entities: Author and Book.
+
+1. Project Structure Setup
+
+The project follows a layered architecture:
+
+Controller Layer – Handles REST API requests
+
+Service Layer – Contains business logic
+
+Repository Layer – Communicates with the database using JPA
+
+Entity Layer – Defines database models
+
+This separation helped me understand how Spring Boot applications are structured professionally.
+
+2. Entity Design
+
+I created two main entities:
+
+Author Entity
+
+id, firstName, lastName, country
+
+Book Entity
+
+id, isbnNumber, name, category, rating,price
+
+I implemented a Many-to-Many relationship between Book and Author, ensuring proper mapping using JPA annotations.
+
+3. CRUD Operations Implemented
+For Author:
+
+Create Author
+Get Author by ID
+Get All Authors
+Update Author
+Delete Author
+
+For Book:
+
+Create Book
+Get Book by ID
+Get All Books
+Update Book
+Delete Book
+
+These operations were exposed through REST endpoints and tested using Postman.
+
+4. Database Integration
+
+Configured MySQL connection using application.yaml
+
+Used Spring Data JPA for automatic query generation
+
+Verified table creation using ddl-auto: update
+
+Tested insert and fetch operations successfully
+
+5. Exception Handling
+
+Implemented basic exception handling:
+
+Custom exception when deleting an Author assigned to a Book
+
+Global exception handler using @ControllerAdvice
+
+This improved API response clarity and error handling.
+
+Path to the work--
+https://github.com/Sweedallewis19/Sclera-Internship/tree/main/TASKs/library/src/main/java/com/example/library

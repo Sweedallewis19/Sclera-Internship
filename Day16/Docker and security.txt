@@ -1,0 +1,98 @@
+I learned that Docker containers help run applications consistently across environments.
+
+Step 1: Package Spring Boot Application
+
+First, I generated a JAR file using Maven:
+
+mvn clean package
+
+This created:
+target/demo-0.0.1-SNAPSHOT.jar
+Step 2: Create Dockerfile
+
+I created a file named Dockerfile in the project root directory.
+
+Content:
+
+FROM openjdk:17
+COPY target/demo-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+FROM → Base image with Java 17
+COPY → Copies jar into container
+ENTRYPOINT → Command to run application
+
+Step 3: Build Docker Image
+
+Command used:
+docker build -t springboot-app .
+
+This created a Docker image named:
+springboot-app
+Step 4: Run Docker Container
+
+Command:
+docker run -p 8080:8080 springboot-app
+
+Spring Security Basics:
+I learned how adding Spring Security dependency automatically secures all endpoints.
+
+Dependency:
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+
+Authentication vs Authorization
+
+Authentication checks who the user is.
+Authorization checks what the user can access.
+
+Basic Authentication Example
+
+Security Configuration:
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
+            )
+            .httpBasic();
+
+        return http.build();
+    }
+}
+
+This enables basic authentication.
+
+JWT Authentication 
+
+I learned that JWT is used for stateless authentication.
+
+Basic Flow:
+
+User logs in
+Server generates token
+Client sends token in header
+Server validates token
+
+Example Header:
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+Role-Based Access Control Example
+
+.authorizeHttpRequests(auth -> auth
+    .requestMatchers("/admin/**").hasRole("ADMIN")
+    .requestMatchers("/user/**").hasRole("USER")
+)
+
+
+This restricts access based on roles.

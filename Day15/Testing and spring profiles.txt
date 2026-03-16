@@ -1,0 +1,24 @@
+I learned the importance of testing in backend development. I understood how unit testing ensures individual components work correctly.
+
+Unit Testing Basics
+I learned how to write test cases for service methods to verify expected outputs. This helped me understand test-driven development principles.
+
+@SpringBootTest Annotation
+I understood that @SpringBootTest loads the entire application context for integration testing. This helped me test complete workflows rather than individual units.
+
+Mocking with Mockito
+I learned how Mockito creates mock objects to simulate dependencies. This helped me understand how to isolate business logic from database or external systems during testing.
+
+Testing REST Controllers
+I practiced testing REST endpoints by simulating HTTP requests and validating JSON responses. This improved my debugging and validation skills.
+
+Configuration and Profiles
+
+Spring Profiles
+I learned how Spring Profiles allow switching between different environments like development and production without modifying code.
+
+Environment Specific Configuration
+I understood how separate property files manage environment-specific settings such as database configurations.
+
+Externalized Configuration
+I learned how to store configuration values outside the source code using properties files and environment variables, improving application security and flexibility.
