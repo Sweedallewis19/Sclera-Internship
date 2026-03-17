@@ -1,0 +1,13 @@
+WebClient Implementation in Library Management System
+1. Objective
+- Integrate external book API with the existing library application
+2. Implementation Summary
+- Created WebClientConfig.java - Spring configuration class with WebClient bean
+- Added getExternalBook() method in BookService.java to fetch book data from external service
+- Created ExternalBookDTO.java as response model
+3. Technical Details
+- Uses Spring WebClient (non-blocking HTTP client)
+- Endpoint: http://localhost:8083/books/mock/external/{id}
+- Returns: ExternalBookDTO (id, title, author, description)
+
+https://github.com/Sweedallewis19/Book-management
