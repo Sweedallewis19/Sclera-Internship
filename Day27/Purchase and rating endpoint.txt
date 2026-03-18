@@ -1,0 +1,45 @@
+Today, I worked on implementing two key features in the Book Management System: Book Purchase and Book Rating.
+
+1. Purchase Endpoint Implementation
+
+Developed APIs to allow users to purchase books using both book ID and book name.
+
+Implemented logic to:
+
+Fetch or create a user based on the username.
+
+Associate the user with the selected book using a many-to-many relationship (purchasedUsers).
+
+Ensured that:
+
+A user is added to the book’s purchased list.
+Duplicate purchases are handled using a Set structure.
+Secured the endpoint using role-based access control (USER, ADMIN).
+
+2. Rating Endpoint Implementation
+
+Implemented APIs to allow users to rate books (by ID and by name).
+
+Added validation to ensure:
+
+Only users who have purchased the book can rate it.
+Designed logic to:
+Check if a rating already exists for the user:
+
+If yes → update the rating.
+If no → create a new rating entry.
+
+Maintained a separate BookRating entity to track ratings per user.
+
+Implemented logic to calculate and update the average rating of the book dynamically.
+
+3. Business Logic & Validation
+
+Enforced strict validation rules:
+Unauthorized users cannot rate books.
+Only purchased users can rate.
+
+Implemented exception handling using custom exceptions like:
+
+BookNotPurchasedException
+Ensured data consistency by updating ratings and saving changes properly.
