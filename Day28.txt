@@ -1,0 +1,39 @@
+I learned about key topics in networking, focusing on Ether Types, MAC addressing, and Virtual Local Area Networks (VLANs). The following report outlines what I studied and understood about these subjects.
+
+5.1 Ether Types
+
+An Ether Type is a two-byte field in an Ethernet frame that identifies the protocol being carried.
+
+It helps network devices determine how to process the payload.
+
+Common Ether Types:
+
+0x0800: IPv4
+
+0x86DD: IPv6
+
+0x8100: VLAN tagging (IEEE 802.1Q)
+
+5.2 MAC Addressing
+
+A MAC (Media Access Control) address is a unique 48-bit identifier assigned to network interfaces for communication at the data link layer.
+
+There are two types of MAC addresses:
+
+Unicast: Identifies a single network interface.
+
+Multicast: Identifies a group of devices.
+
+Broadcast: Targets all devices on the same network.
+
+MAC addresses are usually represented in hexadecimal format (e.g., 00:1A:2B:3C:4D:5E).
+
+5.3 Virtual Local Area Networks (VLANs)
+
+VLANs logically segment a network into different broadcast domains.
+
+Each VLAN has a unique VLAN ID (VID) assigned to it.
+
+VLAN tagging (IEEE 802.1Q) uses the 0x8100 Ether Type to mark Ethernet frames with a VLAN ID:
+
+This allows multiple VLANs to coexist on the same physical network.
