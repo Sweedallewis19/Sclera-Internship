@@ -1,3 +1,0 @@
-I studied Ether Types, which define how data is identified and processed within Ethernet frames, and learned about MAC addressing, which uniquely identifies devices on a network. I also explored VLANs (Virtual Local Area Networks), which help segment networks for better performance and security.
-
-Additionally, I developed an understanding of the Internet Protocol (IP), including how data is transmitted across networks. I learned about IPv4 address classes and the concept of subnetting, which is used to divide networks efficiently and optimize IP address usage.
