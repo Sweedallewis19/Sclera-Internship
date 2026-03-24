@@ -1,0 +1,7 @@
+I studied various core networking protocols that are essential for communication in modern computer networks. I learned about ICMP and its role in handling error messages and network diagnostics. I explored ARP and how it connects IP addresses to MAC addresses within a local network.
+
+I gained a clear understanding of TCP, which ensures reliable and connection-oriented data transmission, and UDP, which enables fast, connectionless communication suitable for real-time applications.
+
+I also studied DHCP, which automatically assigns IP addresses to devices, and DNS, which translates domain names into IP addresses. Additionally, I learned about HTTP and HTTPS protocols used for web communication, including secure data transfer.
+
+Furthermore, I explored FTP for transferring files between systems and SMTP for sending emails, helping me build a strong foundation in networking protocols.
