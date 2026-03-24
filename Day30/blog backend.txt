@@ -1,0 +1,21 @@
+Authentication System
+- User registration with name, email, password, bio
+- User login with email/password returning JWT token
+- JWT security with 24-hour token expiry
+- Role-based access control (USER and ADMIN)
+- Get current logged-in user details
+---
+Blog Post Management
+- Create posts with title, content, image, published status
+- Update posts (only post owner can update)
+- Delete posts (soft delete, only owner)
+- Get all posts (paginated with sorting)
+- Get single post (auto view count increment)
+- Get posts by specific user
+- View count tracking
+
+API Response Structure
+- success (boolean)
+- message (status text)
+- data (actual response)
+- errors (validation errors)
