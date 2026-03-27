@@ -1,0 +1,7 @@
+I learned key networking concepts essential for modern communication systems.
+
+Network Address Translation (NAT): Allows multiple devices in a private network to access the internet using a single public IP by translating private IPs and ports into public ones.
+NAT Working: Converts private IP to public IP when sending data and reverses it when receiving data.
+ARP (Address Resolution Protocol): Maps IP addresses to MAC addresses within a local network for device communication.
+TCP/IP: A protocol suite that enables data communication by dividing data into packets and ensuring reliable transmission (TCP) and routing (IP).
+Subnetting: Divides a large network into smaller sub-networks for efficient IP usage and better network management
