@@ -1,0 +1,8 @@
+I began by learning the fundamentals of unit testing and its importance in the software development lifecycle. 
+I explored how unit testing differs from integration and system testing, focusing on testing individual components in isolation.
+I gained hands-on experience with JUnit 5, which is widely used for writing and executing test cases in Java-based applications. 
+I used various annotations such as @Test, @BeforeEach, and assertions like assertEquals and assertThrows to validate expected outcomes.
+
+To isolate components and avoid dependencies on external systems like databases, I learned to use Mockito for mocking objects. 
+By using annotations such as @Mock, @InjectMocks, and @MockBean, I was able to simulate the behavior of repository and service layers. 
+This helped in testing business logic independently and efficiently.
