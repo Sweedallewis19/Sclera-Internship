@@ -1,0 +1,9 @@
+Tasks Completed:
+1. Test Environment Setup
+   - Added H2 in-memory database dependency to pom.xml for isolated test execution
+   - Created application-test.yaml with H2 configuration to separate test and production environments
+   - Configured Mockito with Byte Buddy experimental support for Java 25 compatibility
+2. Repository Tests (19 tests)
+   - Tested JPQL queries for PostRepository including published post filtering, slug-based lookups, and draft visibility logic
+   - Tested CommentRepository queries for top-level comments, reply threading, and soft delete behavior
+   - Verified that findAllPublishedOrOwnedByUser correctly returns published posts plus the authenticated user's own drafts
