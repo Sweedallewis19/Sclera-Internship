@@ -1,0 +1,54 @@
+I learned the fundamentals of RabbitMQ, a message broker used for enabling communication between different parts of a system in a reliable and scalable way. It plays a key role in building asynchronous and decoupled architectures.
+
+Core Concepts Learned
+1. Queue
+
+A queue is a storage buffer where messages are held until they are processed.
+
+Producers send messages to queues
+Consumers receive messages from queues
+Ensures messages are not lost and are processed in order
+2. Exchange
+
+An exchange acts as a routing agent. Instead of sending messages directly to queues, producers send them to exchanges.
+
+The exchange decides how messages should be routed
+Types learned:
+Direct Exchange → routes based on exact routing key match
+Fanout Exchange → broadcasts messages to all queues
+Topic Exchange → routes based on pattern matching
+3. Routing Key
+
+A routing key is a label attached to a message.
+
+Used by the exchange to decide which queue should receive the message
+Example: "order.created" or "user.signup"
+4. Binding
+
+Binding connects an exchange to a queue using a routing key.
+
+Defines the rule for message delivery
+Example: Queue listens to messages with a specific routing key
+Message Flow Understanding
+
+The overall message flow in RabbitMQ:
+
+Producer sends a message
+Message goes to an Exchange
+Exchange uses Routing Key + Binding
+Message is placed in a Queue
+Consumer reads and processes the message
+
+Publishing Messages
+Producers publish messages to an exchange
+Messages include:
+Payload (data)
+Routing key
+Ensures loose coupling between services
+
+Consuming Messages
+Consumers subscribe to queues
+Messages are pulled or pushed from the queue
+Acknowledgement (ACK) is used:
+Ensures message is processed successfully
+Prevents message loss
