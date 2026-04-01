@@ -1,0 +1,31 @@
+1. Test Environment Setup
+- Added spring-boot-starter-test dependency providing JUnit 5, Mockito, AssertJ, and Spring Test
+- Added spring-security-test for mocking authentication in controller tests
+- Added h2 in-memory database for repository layer testing without MySQL dependency
+- Configured maven-surefire-plugin with net.bytebuddy.experimental=true to resolve ByteBuddy compatibility with Java 17
+
+2. Service Layer Testing (PostServiceTest, CommentServiceTest)
+- Used @ExtendWith(MockitoExtension.class) to enable Mockito annotations
+- Mocked dependencies (PostRepository, UserRepository, PostMapper) using @Mock
+- Injected mocks into service class using @InjectMocks
+- Created reusable test data in @BeforeEach method for consistent test setup
+- Tested business logic methods:
+  - Post creation with auto-generated slug
+  - Fetching published posts by slug
+  - Authorization checks (owner vs non-owner)
+  - Soft delete functionality
+
+3. Controller Layer Testing (AuthControllerTest, PostControllerTest, CommentControllerTest)
+- Used @WebMvcTest to load only web layer without starting full server
+- Mocked service dependencies to isolate controller logic
+- Used MockMvc to perform HTTP requests and validate responses
+- Tested:
+  - Request validation (@Valid annotations)
+  - HTTP status codes (200, 201, 400, 404)
+  - JSON response structure matching ApiResponse<T> format
+  - Security endpoints with @WithMockUser
+4. Exception Handling Verification
+- Verified ResourceNotFoundException thrown for missing entities (404)
+- Verified BadRequestException thrown for validation failures (400)
+- Verified UnauthorizedException thrown for unauthorized access (401)
+- Confirmed all exceptions wrapped in ApiResponse.error() format
