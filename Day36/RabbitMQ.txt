@@ -1,0 +1,12 @@
+Overview
+- Implement RabbitMQ for asynchronous comment notifications in a Spring Boot blog backend
+- When a user comments on a post, the post author receives a notification (simulated via logging)
+- Decouples notification sending from the main request flow
+
+`src/main/java/com/blog/config/RabbitMQConfig.java`
+  - Defines queue, exchange, and routing key configuration
+  - Configures Jackson2JsonMessageConverter for JSON serialization
+  - Sets up RabbitTemplate bean for message publishing
+- `src/main/java/com/blog/dto/event/CommentCreatedEvent.java`
+  - Record class to transfer comment event data
+  - Contains: postId, postTitle, postAuthorEmail, postAuthorName, commenterName, commentContent, createdAt
